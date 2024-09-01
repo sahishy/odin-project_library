@@ -1,0 +1,515 @@
+/* ROOT VARIABLES */
+
+:root {
+
+    --background: #FFFFFF;
+    --background-dark: #f7f8fa;
+
+    --primary-light: rgb(100, 157, 255);
+    --primary: rgb(73, 140, 255);
+    --secondary: #eef1f5;
+
+    --highlight: rgba(255, 246, 121, 0.5);
+    --negative: rgb(255, 81, 81);
+
+    --neutral-light: #eef1f5;
+    --neutral: rgb(167, 176, 192);
+    --neutral-dark: rgb(86, 91, 99);
+    --neutral-darker: rgb(56, 59, 65);
+
+
+    --box-shadow: 0px 0px 10px rgba(0, 18, 46, 0.1);
+
+}
+
+/* BASE CLASSES */
+
+.hidden {
+    display: none !important;
+}
+
+.draggable {
+    cursor: grab !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.primary {
+    background-color: var(--primary);
+    color: white;
+}
+.secondary {
+    background-color: var(--secondary);
+    color: var(--neutral-dark);
+}
+.negative {
+    background-color: var(--negative);
+    color: white;
+}
+.neutral-dark {
+    color: var(--neutral-dark);
+}
+.neutral-darker {
+    color: var(--neutral-darker);
+}
+
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+/* BASE ELEMENT CLASSES */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+.html, body {
+
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+}
+
+h1 {
+
+    font-size: 3rem;
+    color: var(--neutral-darker);
+
+}
+
+h2 {
+
+    font-size: 2rem;
+    margin: 0;
+    color: var(--neutral-darker);
+
+}
+
+h3 {
+
+    font-size: 1.4rem;
+    margin: 0;
+    color: var(--neutral-dark);
+
+}
+
+h4 {
+
+    font-size: 1rem;
+    margin: 0;
+    color: var(--neutral);
+    font-weight: normal;
+
+}
+
+p {
+
+    color: var(--neutral);
+
+}
+
+mark {
+
+    background-color: var(--highlight);
+
+}
+
+label {
+
+    color: var(--neutral-dark);
+
+}
+
+input {
+
+    padding: 1em;
+    
+    border-style: solid;
+    border-color: var(--background-dark);
+    border-radius: 20px;
+
+    color: var(--neutral-dark);
+    
+    outline: none;
+
+}
+input::placeholder {
+    color: var(--neutral);
+}
+
+button {
+
+    border-style: none;
+    border-radius: 20px;
+
+    font-weight: bold;
+    font-size: 1rem;
+
+    padding: 1em 3em 1em 3em;
+
+    user-select: none;
+    cursor: pointer;
+
+    transition: transform 0.2s;
+}
+button:hover {
+    transform: translateY(-2px);
+}
+button:active {
+    transform: scale(0.9);
+}
+
+.icon {
+
+    user-select: none;
+
+    color: var(--neutral-dark);
+
+    transition: transform 0.2s;
+}
+.icon-fill {
+    font-variation-settings: 'FILL' 1;
+}
+.icon-button {
+    cursor: pointer; 
+}
+.icon-button:hover {
+    font-variation-settings: 'FILL' 1;
+}
+.icon-button:active {
+    transform: scale(0.9);
+}
+.icon-button-toggled {
+    color: var(--primary);
+    font-variation-settings: 'FILL' 1;
+}
+
+.profile-picture {
+    border-radius: 100px;
+    object-fit: contain;
+
+    width: 40px;
+    height: 40px;
+}
+
+/* CUSTOM ELEMENT CLASSES */
+
+.main {
+
+    display: grid;
+    grid-template: repeat(16, 1fr) / repeat(16, 1fr);
+
+    width: 100vw;
+    height: 100vh;
+
+    padding: 2em;
+    gap: 2em;
+
+}
+
+.sidebar {
+
+    grid-area: 1 / 1 / 17 / 4;
+
+    border-radius: 20px;
+    background-color: var(--background-dark);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    padding: 2em 2em 4em 2em;
+
+}
+.sidebar-header {
+
+    color: var(--neutral-dark);
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+
+}
+.sidebar-item {
+
+    border-style: none;
+    border-radius: 20px;
+
+    outline-color: rgba(255, 255, 255, 0);
+    outline-style: solid;
+    outline-width: 3px;
+    outline-offset: 4px;
+
+    font-weight: bold;
+
+    padding: 1em 1em 1em 1em;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    user-select: none;
+    cursor: pointer;
+
+    transition: outline-color 0.2s;
+
+}
+.sidebar-item:hover {
+    outline-color: var(--neutral-light);
+}
+.sidebar-item-selected {
+    outline-color: var(--neutral) !important;
+}
+.sidebar-item > div {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+.sidebar-collections {
+
+    overflow-y: overlay;
+    overflow-x: hidden;
+
+    margin: 0 1em 0 1em;
+    padding: .5em;
+
+    border-radius: 20px;
+    outline-style: solid;
+    outline-color: var(--secondary);
+    outline-width: 4px;
+    outline-offset: 1em;
+
+    display: flex;
+    flex-direction: column;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--background-dark);
+
+    gap: 1.5em;
+
+}
+
+.topbar {
+
+    grid-area: 1 / 4 / 3 / 17;
+
+    background-color: var(--background-dark);
+    border-radius: 20px;
+
+    padding: 2em;
+
+    display: flex;
+    gap: 2em;
+    justify-content: end;
+    align-items: center;
+
+}
+.topbar-searchbar-holder {
+
+    margin-right: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+}
+.topbar-searchbar {
+    background: none;
+    font-size: 1rem;
+
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: rgba(0, 0, 0, 0);
+
+    padding: .5em;
+
+    transition: border-bottom-color 0.2s;
+}
+.topbar-searchbar:focus {
+    border-bottom-color: var(--neutral)
+}
+.topbar-divider {
+    width: 2px;
+    border-radius: 20px;
+    height: 300%;
+    background-color: var(--secondary);
+}
+
+.holder {
+
+    grid-area: 3 / 4 / 17 / 17;
+
+    /* background-color: var(--background-dark); */
+
+    display: grid;
+    grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+    gap: 2em;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary) var(--background-dark);
+    
+    padding-right: 2em;
+    
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px     rgba(0,0,0,0.5); 
+}
+
+.book {
+
+    opacity: 0;
+
+    border-radius: 20px;
+    border-color: var(--background-dark);
+    border-style: solid;
+    border-width: 4px;
+
+    aspect-ratio: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 2em;
+    gap: 1em;
+
+    transition: opacity .5s;
+    
+}
+
+.book-info {
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.book-actions {
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1em;
+
+}
+
+dialog[open] {
+
+    opacity: 0;
+    transform: translateY(10px);
+
+    display: flex;
+    flex-direction: column;
+
+    border: none;
+    border-radius: 20px;
+
+    box-shadow: var(--box-shadow);
+
+    width: 500px;
+    padding: 2em;
+
+    transition: opacity, transform, 0.2s;
+
+}
+dialog:focus {
+    outline: none;
+}
+
+dialog > form {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1em;
+
+    padding: 2em 0 2em 0;
+
+}
+
+dialog > div {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+}
+
+.dialog-error {
+    color: var(--negative);
+    margin: -1em;
+    font-size: .8rem;
+    text-align: left;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    opacity: 0;
+
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translate(-50%) translateY(6px);
+    padding: 1em;
+
+    background-color: var(--neutral-darker);
+
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #fff;
+    text-align: center;
+    font-size: 1rem;
+
+    border-radius: 20px;
+   
+    position: absolute;
+    z-index: 1;
+
+    transition: visibility, opacity, transform, 0.2s;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%) translateY(0px);
+}
+
+
+.empty-library {
+
+    position: absolute;
+
+    width: 78%;
+    height: 80%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+    font-size: 1.5rem;
+    color: var(--neutral)
+;
+}
