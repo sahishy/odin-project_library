@@ -12,6 +12,8 @@ const sidebarButtons = {
 
 const searchBar = document.getElementById('searchBar');
 
+const mobileNewBookButton = document.getElementById('mobileNewBookButton');
+
 // BOOKS
 
 const bookTemplate = document.getElementById('bookTemplate');
@@ -246,10 +248,10 @@ function addCollectionElement(collection) {
     collectionElement.id = 'collection';
     
     //update node
-    collectionElement.getElementsByTagName("div")[0].textContent = collection.name;
+    collectionElement.getElementsByTagName("div")[0].getElementsByTagName("div")[0].textContent = collection.name;
 
     //add to html holder
-    collectionHolder.insertBefore(collectionElement, collectionHolder.firstChild);
+    collectionHolder.insertBefore(collectionElement, collectionHolder.lastChild);
 
     collectionElement.classList.remove('hidden');
 
@@ -363,6 +365,7 @@ function newBook() {
 }
 newBookButton.addEventListener('click', newBook);
 emptyNewBookButton.addEventListener('click', newBook);
+mobileNewBookButton.addEventListener('click', newBook);
 
 newBookDialogCancelButton.addEventListener('click', () => {
 

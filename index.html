@@ -74,29 +74,43 @@
             <div class="sidebar-header">
                 Collections
 
-                <span class="material-symbols-rounded icon icon-button tooltip" id="newCollectionButton">
-                    create_new_folder
-                    <span class="tooltiptext">Create new Collection</span>
-                </span>
+                <div>
+
+                    <span class="material-symbols-rounded icon tooltip">
+                        filter_list
+                        <span class="tooltiptext">Sorting by Oldest First</span>
+                    </span>
+
+                    <span class="material-symbols-rounded icon icon-button tooltip" id="newCollectionButton">
+                        create_new_folder
+                        <span class="tooltiptext">Create new Collection</span>
+                    </span>
+
+                </div>
+
             </div>
 
             <div class="sidebar-collections" id="collectionHolder">
 
-                <div class="sidebar-item secondary draggable" id="collectionTemplate">
+                <div class="sidebar-item sidebar-collection secondary draggable" id="collection">
 
-                    <span class="material-symbols-rounded icon icon-fill">
-                        folder
-                    </span>
-            
                     <div>
             
-                        Collection 1
-                        
+                        <span class="material-symbols-rounded icon icon-fill">
+                            folder
+                        </span>
+                
+                        <div>
+                
+                            Collection 1
+                            
+                        </div>
+            
                     </div>
             
-                    <span class="material-symbols-rounded icon icon-button" style="align-self: self-end;">
+                    <span class="material-symbols-rounded icon icon-button">
                         more_vert
-                    </span>
+                    </span>  
             
                 </div>
 
@@ -105,6 +119,10 @@
         </div>
 
         <div class="topbar">
+
+            <span class="material-symbols-rounded icon icon-button sidebar-toggle-button" id="sidebarToggleButton">
+                menu
+            </span>
 
             <div class="topbar-searchbar-holder">
 
@@ -116,17 +134,26 @@
 
             </div>
 
-            <span class="material-symbols-rounded icon icon-button">
-                notifications
-            </span>
+            <div class="topbar-buttons-holder">
 
-            <span class="material-symbols-rounded icon icon-button">
-                settings
-            </span>
+                <span class="material-symbols-rounded icon icon-button">
+                    notifications
+                </span>
+    
+                <span class="material-symbols-rounded icon icon-button">
+                    settings
+                </span>
 
-            <div class="topbar-divider"></div>
+                <div class="topbar-divider"></div>
 
-            <h3>
+            </div>
+
+            <button class="primary topbar-book-button" id="mobileNewBookButton">
+                <span class="material-symbols-rounded icon icon-fill">
+                    add
+                </span>
+            </button>
+            <h3 class="topbar-name">
                 sahish
             </h3>
 
@@ -279,19 +306,23 @@
 
     </div>
 
-    <div class="sidebar-item secondary draggable hidden" id="collectionTemplate">
-
-        <span class="material-symbols-rounded icon icon-fill">
-            folder
-        </span>
+    <div class="sidebar-item sidebar-collection secondary draggable hidden" id="collectionTemplate">
 
         <div>
 
-            
-            
+            <span class="material-symbols-rounded icon icon-fill">
+                folder
+            </span>
+    
+            <div>
+    
+                
+                
+            </div>
+
         </div>
 
-        <span class="material-symbols-rounded icon icon-button" style="align-self: self-end;">
+        <span class="material-symbols-rounded icon icon-button">
             more_vert
         </span>
 
