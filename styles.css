@@ -232,6 +232,8 @@ button:active {
 
     padding: 2em 2em 4em 2em;
 
+    z-index: 1;
+
 }
 .sidebar-header {
 
@@ -289,6 +291,7 @@ button:active {
 
     margin: 0 1em 0 1em;
     padding: .5em;
+    min-height: 2em;
 
     border-radius: 20px;
     outline-style: solid;
@@ -400,7 +403,7 @@ button:active {
     position: relative;
 
     display: grid;
-    grid-template: repeat(auto-fill, 12em) / repeat(auto-fill, 12em);
+    grid-template: repeat(auto-fill, 16em) / repeat(auto-fill, 16em);
     gap: 2em;
 
     overflow-y: scroll;
@@ -577,6 +580,8 @@ dialog > div {
         
         display: none;
 
+        grid-area: 3 / 1 / 17 / 17;
+
     }
     .sidebar-toggle-button {
 
@@ -584,11 +589,21 @@ dialog > div {
         
     }
 
+    #newBookButton {
+        display: none;
+    }
+
     /* TOPBAR */
     .topbar {
 
         grid-area: 1 / 1 / 3 / 17;
 
+    }
+    .topbar-buttons-holder {
+        display: none;
+    }
+    .topbar-book-button {
+        display: block !important;
     }
 
     /* HOLDER */
@@ -601,16 +616,6 @@ dialog > div {
 }
 
 @media (max-width: 750px) {
-
-    .topbar-buttons-holder {
-        
-        display: none;
-
-    }
-
-}
-
-@media (max-width: 610px) {
 
     /* MAIN */
     .main {
@@ -631,23 +636,26 @@ dialog > div {
     .topbar-name {
         display: none;
     }
-    .topbar-book-button {
-        display: block !important;
-    }
 
     /* HOLDER */
     .holder {
-        grid-area: 2 / 1 / 8 / 1;
+        grid-area: 2 / 1 / auto-fit / 1;
+
+        display: flex;
+        flex-direction: column;
+    }
+    .holder > div {
+        flex: 0.1;
     }
 
     /* SIDEBAR */
     .sidebar {
-        grid-area: 1 / 1 / 8 / 1;
+        grid-area: 2 / 1 / auto-fit / 1;
     }
 
-    #newBookButton {
+    /* TOOLTIPS */
+    .tooltiptext {
         display: none;
     }
-    
 
 }

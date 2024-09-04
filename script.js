@@ -1,18 +1,25 @@
 // DOCUMENT REFERENCES
 
+//EMPTY LIBRARY
+
 const empty = document.getElementById("empty"); // element that displays when user has no books in library
 const emptyNewBookButton = document.getElementById("emptyNewBookButton"); // new book button that displays with empty
 
+// SIDEBAR AND TOPBAR
+
+const sidebar = document.getElementById("sidebar");
 const sidebarButtons = {
     sidebarLibraryButton: document.getElementById("sidebarLibraryButton"),
     sidebarReadButton: document.getElementById("sidebarReadButton"),
     sidebarUnreadButton: document.getElementById("sidebarUnreadButton"),
     sidebarFavoritesButton: document.getElementById("sidebarFavoritesButton")
 };
-
 const searchBar = document.getElementById('searchBar');
 
+// MOBILE
+
 const mobileNewBookButton = document.getElementById('mobileNewBookButton');
+const mobileSidebarButton = document.getElementById('mobileSidebarButton');
 
 // BOOKS
 
@@ -38,6 +45,7 @@ const newCollectionDialogFormSubmitButton = document.getElementById('newCollecti
 
 // VARIABLES
 
+let sidebarToggled = false;
 let searchBarText = "";
 let currentTabIndex = 0;
 const myLibrary = [];
@@ -469,5 +477,23 @@ newCollectionDialogFormSubmitButton.addEventListener('click', (event) => {
 
 });
 
+mobileSidebarButton.addEventListener('click', () => {
+
+    sidebarToggled = !sidebarToggled;
+
+    sidebar.style.display = sidebarToggled ? "flex" : "none";
+
+});
+window.addEventListener('resize', () => {
+
+    if(window.innerWidth > 1100 && !sidebarToggled) {
+
+        sidebar.style.display = "flex";
+
+    } else {
+        sidebar.style.display = "none";
+    }
+
+});
 
 searchBar.addEventListener('keyup', bookSearchBar);
